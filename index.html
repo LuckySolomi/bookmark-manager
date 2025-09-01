@@ -12,7 +12,31 @@
     <link href="output.css" rel="stylesheet" />
     <script src="js/script.js" defer></script>
   </head>
-  <body class="text-center p-10">
-    <h1 class="text-3xl font-bold text-red-500">Bookmark Website</h1>
+  <body class="overflow-x-hidden">
+    <nav class="container relative mx-auto p-6">
+      <div class="flex items-center justify-between space-x-20 my-6">
+        <div class="z-30">
+          <img src="./images/logo-bookmark.svg" alt="" id="logo" />
+        </div>
+        <!--Menu Items-->
+        <div
+          class="hidden items-center space-x-10 uppercase text-grayisBlue md:flex"
+        >
+          <a href="#features" class="tracking-widest hover:text-softRed"
+            >Features</a
+          >
+          <a href="#download" class="tracking-widest hover:text-softRed"
+            >Download</a
+          >
+          <a href="#faq" class="tracking-widest hover:text-softRed">FAQ</a>
+
+          <a
+            href="#"
+            class="px-8 py-2 text-white transition-all duration-200 bg-softRed border-2 border-softRed rounded-lg shadow-md hover:text-softRed hover:bg-white"
+            >Login</a
+          >
+        </div>
+      </div>
+    </nav>
   </body>
 </html>
