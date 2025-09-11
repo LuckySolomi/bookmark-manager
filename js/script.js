@@ -3,8 +3,19 @@ const panels = document.querySelectorAll(".panel");
 const btn = document.getElementById("menu-btn");
 const menu = document.getElementById("menu");
 const logo = document.getElementById("logo");
+const menuLinks = menu.querySelectorAll("a");
 
 btn.addEventListener("click", navToggle);
+
+menuLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    menu.classList.remove("flex");
+    menu.classList.add("hidden");
+    btn.classList.remove("open");
+    logo.setAttribute("src", "./images/logo-bookmark.svg");
+    document.body.classList.remove("overflow-hidden");
+  });
+});
 
 tabs.forEach((tab) => tab.addEventListener("click", onTabClick));
 
