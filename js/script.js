@@ -1,3 +1,5 @@
+import { tabsData, cardsData, faqData } from "../data/data.js";
+
 const tabs = document.querySelectorAll(".tab");
 const panels = document.querySelectorAll(".panel");
 const btn = document.getElementById("menu-btn");
