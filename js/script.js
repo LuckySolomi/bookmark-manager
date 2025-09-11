@@ -35,7 +35,9 @@ function navToggle() {
 
   if (menu.classList.contains("flex")) {
     logo.setAttribute("src", "./images/logo-bookmark-footer.svg");
+    document.body.classList.add("overflow-hidden");
   } else {
     logo.setAttribute("src", "./images/logo-bookmark.svg");
+    document.body.classList.remove("overflow-hidden");
   }
 }
