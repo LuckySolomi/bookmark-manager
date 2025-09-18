@@ -47,21 +47,25 @@ export const faqData = [
   {
     id: 1,
     question: "What is Bookmark?",
-    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+    answer:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, repellat amet doloribus consequuntur eos similique provident tempora voluptates iure quia fuga dicta voluptatibus culpa mollitia recusandae delectus id suscipit labore?",
   },
   {
     id: 2,
     question: "How can I request a new browser?",
-    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+    answer:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, repellat amet doloribus consequuntur eos similique provident tempora voluptates iure quia fuga dicta voluptatibus culpa mollitia recusandae delectus id suscipit labore?",
   },
   {
     id: 3,
     question: "Is there a mobile app?",
-    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+    answer:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, repellat amet doloribus consequuntur eos similique provident tempora voluptates iure quia fuga dicta voluptatibus culpa mollitia recusandae delectus id suscipit labore?",
   },
   {
     id: 4,
     question: "What about other Chromium browsers?",
-    answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+    answer:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, repellat amet doloribus consequuntur eos similique provident tempora voluptates iure quia fuga dicta voluptatibus culpa mollitia recusandae delectus id suscipit labore?",
   },
 ];

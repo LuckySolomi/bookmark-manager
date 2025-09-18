@@ -3,6 +3,7 @@ import { panelData, tabsData, cardsData, faqData } from "../data/data.js";
 const tabsContainer = document.getElementById("tabsContainer");
 const panelsContainer = document.getElementById("panels");
 const downloadCardContainer = document.getElementById("downloadCardContainer");
+const faqTabsContainer = document.getElementById("faqTabsContainer");
 const btn = document.getElementById("menu-btn");
 const menu = document.getElementById("menu");
 const logo = document.getElementById("logo");
@@ -99,6 +100,43 @@ function renderDownloadCards() {
     .join("");
 }
 
+function renderFAQ() {
+  faqTabsContainer.innerHTML = faqData
+    .map(({ id, question, answer }) => {
+      return `
+        <div class="py-1 border-b outline-none group" tabindex="${id}">
+          <div
+            class="flex items-center justify-between py-3 text-gray-500 transition duration-500 cursor-pointer group ease"
+          >
+            <div class="transition duration-500 ease group-hover:text-red-500">
+              ${question}
+            </div>
+            <div
+              class="transition duration-500 ease group-focus:-rotate-180 group-focus:text-red-500"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12">
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  d="M1 1l8 8 8-8"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div
+            class="overflow-hidden transition duration-500 group-focus:max-h-screen max-h-0 ease"
+          >
+            <p class="py-2 text-justify text-gray-400">
+              ${answer}
+            </p>
+          </div>
+        </div>
+      `;
+    })
+    .join("");
+}
+
 function setupTabs() {
   const tabs = document.querySelectorAll(".tab");
   tabs.forEach((tab) =>
@@ -142,3 +180,4 @@ renderTabs("panel-1");
 renderPanel("panel-1");
 setupTabs();
 renderDownloadCards();
+renderFAQ();
