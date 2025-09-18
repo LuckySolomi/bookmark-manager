@@ -51,6 +51,7 @@ function renderPanel(panelKey) {
           src="${img}"
           alt="panel"
           class="relative z-10"
+          loading="lazy"
         />
       </div>
       <div class="flex flex-col space-y-8 md:w-1/2">
