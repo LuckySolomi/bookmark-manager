@@ -2,6 +2,7 @@ import { panelData, tabsData, cardsData, faqData } from "../data/data.js";
 
 const tabsContainer = document.getElementById("tabsContainer");
 const panelsContainer = document.getElementById("panels");
+const downloadCardContainer = document.getElementById("downloadCardContainer");
 const btn = document.getElementById("menu-btn");
 const menu = document.getElementById("menu");
 const logo = document.getElementById("logo");
@@ -71,6 +72,33 @@ function renderPanel(panelKey) {
   `;
 }
 
+function renderDownloadCards() {
+  downloadCardContainer.innerHTML = cardsData
+    .map(({ img, title, version, class: extraClass }) => {
+      return `
+    <div class="w-full md:w-1/3">
+      <div
+        class="flex flex-col w-full py-6 space-y-4 text-center rounded-lg shadow-lg ${extraClass}"
+      >
+        <div class="flex justify-center">
+          <img src="${img}" />
+        </div>
+        <h5 class="pt-6 text-xl font-bold">${title}</h5>
+        <p class="text-gray-400">Minimum Version ${version}</p>
+        <div class="bg-dots bg-repeat-x px-6 pt-6 capitalize">
+          <a
+            href="#"
+            class="block w-full py-3 text-white duration-200 border-2 rounded-lg bg-softBlue hover:text-softBlue hover:bg-white border-softBlue"
+            >Add &amp; Install Extension</a
+          >
+        </div>
+      </div>
+    </div>
+  `;
+    })
+    .join("");
+}
+
 function setupTabs() {
   const tabs = document.querySelectorAll(".tab");
   tabs.forEach((tab) =>
@@ -113,3 +141,4 @@ function navToggle() {
 renderTabs("panel-1");
 renderPanel("panel-1");
 setupTabs();
+renderDownloadCards();

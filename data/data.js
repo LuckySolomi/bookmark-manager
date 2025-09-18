@@ -23,8 +23,24 @@ export const panelData = {
 };
 
 export const cardsData = [
-  { id: 1, image: "image1.jpg", title: "Card 1", desc: "Description 1" },
-  { id: 2, image: "image2.jpg", title: "Card 2", desc: "Description 2" },
+  {
+    img: "./images/logo-chrome.svg",
+    title: "Add to Chrome",
+    version: "62",
+    class: "",
+  },
+  {
+    img: "./images/logo-firefox.svg",
+    title: "Add to Firefox",
+    version: "55",
+    class: "md:mt-8",
+  },
+  {
+    img: "./images/logo-opera.svg",
+    title: "Add to Opera",
+    version: "46",
+    class: "md:mt-16",
+  },
 ];
 
 export const faqData = [
