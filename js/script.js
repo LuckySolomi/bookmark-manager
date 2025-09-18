@@ -1,7 +1,6 @@
-import { panelData, cardsData, faqData } from "../data/data.js";
+import { panelData, tabsData, cardsData, faqData } from "../data/data.js";
 
-const tabs = document.querySelectorAll(".tab");
-const panel = document.querySelectorAll(".panel");
+const tabsContainer = document.getElementById("tabsContainer");
 const panelsContainer = document.getElementById("panels");
 const btn = document.getElementById("menu-btn");
 const menu = document.getElementById("menu");
@@ -19,6 +18,26 @@ menuLinks.forEach((link) => {
     document.body.classList.remove("overflow-hidden");
   });
 });
+
+function renderTabs(activeTab = "panel-1") {
+  tabsContainer.innerHTML = Object.entries(tabsData)
+    .map(([key, label]) => {
+      const isActive = key === activeTab;
+      return `
+        <div
+          class="flex justify-center text-center cursor-pointer text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3 tab"
+          data-target="${key}"
+        >
+          <div class="py-5 ${
+            isActive ? "border-b-4 border-softRed" : ""
+          }" data-target="${key}">
+            ${label}
+          </div>
+        </div>
+      `;
+    })
+    .join("");
+}
 
 function renderPanel(panelKey) {
   const { img, title, text } = panelData[panelKey];
@@ -52,25 +71,30 @@ function renderPanel(panelKey) {
   `;
 }
 
-renderPanel("panel-1");
+function setupTabs() {
+  const tabs = document.querySelectorAll(".tab");
+  tabs.forEach((tab) =>
+    tab.addEventListener("click", (e) => {
+      const target = e.target.closest(".tab");
+      const panelKey = target.getAttribute("data-target");
 
-tabs.forEach((tab) =>
-  tab.addEventListener("click", (e) => {
-    const target = e.target.closest(".tab"); // щоб ловити клік навіть на внутрішньому елементі
-    const panelKey = target.getAttribute("data-target");
+      // Перерендерюємо вкладки з активною
+      renderTabs(panelKey);
 
-    // Прибираємо активний стан у всіх табів
-    tabs.forEach((t) =>
-      t.children[0].classList.remove("border-softRed", "border-b-4")
-    );
+      tabs.forEach((t) =>
+        t.children[0].classList.remove("border-softRed", "border-b-4")
+      );
 
-    // Додаємо активний стан обраному табу
-    target.children[0].classList.add("border-softRed", "border-b-4");
+      // Додаємо активний стан обраному табу
+      target.children[0].classList.add("border-softRed", "border-b-4");
 
-    // Рендеримо потрібну панель
-    renderPanel(panelKey);
-  })
-);
+      renderPanel(panelKey);
+
+      //  прив’язуємо слухачі після ререндера
+      setupTabs();
+    })
+  );
+}
 
 function navToggle() {
   btn.classList.toggle("open");
@@ -85,3 +109,7 @@ function navToggle() {
     document.body.classList.remove("overflow-hidden");
   }
 }
+
+renderTabs("panel-1");
+renderPanel("panel-1");
+setupTabs();

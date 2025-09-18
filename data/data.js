@@ -1,3 +1,9 @@
+export const tabsData = {
+  "panel-1": "Simple Bookmarking",
+  "panel-2": "Speedy Searching",
+  "panel-3": "Easy Sharing",
+};
+
 export const panelData = {
   "panel-1": {
     img: "./images/illustration-features-tab-1.svg",
