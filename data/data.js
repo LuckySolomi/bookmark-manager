@@ -1,5 +1,4 @@
-// data.js
-export const tabsData = {
+export const panelData = {
   "panel-1": {
     img: "./images/illustration-features-tab-1.svg",
     title: "Bookmark in one click",
