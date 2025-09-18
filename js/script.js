@@ -9,18 +9,6 @@ const menu = document.getElementById("menu");
 const logo = document.getElementById("logo");
 const menuLinks = menu.querySelectorAll("a");
 
-btn.addEventListener("click", navToggle);
-
-menuLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    menu.classList.remove("flex");
-    menu.classList.add("hidden");
-    btn.classList.remove("open");
-    logo.setAttribute("src", "./images/logo-bookmark.svg");
-    document.body.classList.remove("overflow-hidden");
-  });
-});
-
 function renderTabs(activeTab = "panel-1") {
   tabsContainer.innerHTML = Object.entries(tabsData)
     .map(([key, label]) => {
@@ -163,6 +151,18 @@ function setupTabs() {
   );
 }
 
+function initMenu() {
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("flex");
+      menu.classList.add("hidden");
+      btn.classList.remove("open");
+      logo.setAttribute("src", "./images/logo-bookmark.svg");
+      document.body.classList.remove("overflow-hidden");
+    });
+  });
+}
+
 function navToggle() {
   btn.classList.toggle("open");
   menu.classList.toggle("flex");
@@ -177,8 +177,15 @@ function navToggle() {
   }
 }
 
-renderTabs("panel-1");
-renderPanel("panel-1");
-setupTabs();
-renderDownloadCards();
-renderFAQ();
+function initApp() {
+  renderTabs("panel-1");
+  renderPanel("panel-1");
+  renderDownloadCards();
+  renderFAQ();
+  setupTabs();
+  initMenu();
+  initTabs();
+}
+
+document.addEventListener("DOMContentLoaded", initApp);
+btn.addEventListener("click", navToggle);
